@@ -1,4 +1,4 @@
-# 🚀 GitHub Pages Deployment with GitHub Actions
+# ​ GitHub Pages Deployment with GitHub Actions
 
 This repository demonstrates how to automatically deploy a website to **GitHub Pages** using **GitHub Actions**, but **only when the `index.html` file changes**.
 
@@ -6,7 +6,7 @@ It’s a minimal, focused example that can be adapted to any project — from a 
 
 ---
 
-## 📂 Repository Structure
+## ​ Repository Structure
 
 ```
 
@@ -21,7 +21,7 @@ gh-deployment-workflow/
 
 ---
 
-## 🖥️ index.html
+## ​​ index.html
 
 A simple HTML page saying **"Hello, GitHub Actions!"** that serves as our deployed site.
 
@@ -53,7 +53,7 @@ Example content:
 
 ---
 
-## ⚙️ GitHub Actions Workflow
+## &#x20;GitHub Actions Workflow
 
 File: `.github/workflows/deploy.yml`
 
@@ -105,21 +105,21 @@ jobs:
 
 ---
 
-## 📜 How It Works
+## &#x20;How It Works
 
 1. **Trigger conditions**
 
    * Runs on `push` to `main`
-   * Only runs if `index.html` changes (due to `paths` filter)
-   * Can also be triggered manually via **Workflow Dispatch** in the Actions tab
+   * Only runs if `index.html` changes (thanks to `paths` filter)
+   * Can also be triggered manually via **Workflow Dispatch**
 
 2. **Jobs**
 
    * **Build job**
 
-     * Checks out repository
+     * Checks out the repo
      * Configures GitHub Pages metadata
-     * Uploads the HTML file as a Pages artifact
+     * Uploads the HTML file(s) as a Pages artifact
    * **Deploy job**
 
      * Deploys the uploaded artifact to GitHub Pages
@@ -136,7 +136,7 @@ jobs:
 
 ---
 
-## 🛠 Setup Instructions
+## &#x20;Setup Instructions
 
 1. **Create the Repository**
 
@@ -169,7 +169,7 @@ jobs:
 
 ---
 
-## 📌 Notes
+## &#x20;Notes
 
 * **Only deploys when `index.html` changes** — saves workflow runs for unrelated commits.
 * To deploy all files in the repo, change:
@@ -187,10 +187,10 @@ jobs:
 
 ---
 
-## 🌟 Stretch Goal: Static Site Generators
+## &#x20;Stretch Goal: Static Site Generators
 
 You can extend this setup for tools like **Hugo**, **Jekyll**, or **Astro**.
-Example Hugo workflow:
+Example Hugo workflow snippet:
 
 ```yaml
 - name: Install Hugo
@@ -210,17 +210,16 @@ Example Hugo workflow:
 
 ---
 
-## 📚 Resources
+## &#x20;Related Resources
 
-* [GitHub Pages Documentation](https://docs.github.com/pages)
-* [GitHub Actions Documentation](https://docs.github.com/actions)
-* [Official Pages Deployment Workflow](https://github.com/actions/deploy-pages)
+* 🛠 [roadmap.sh: GitHub Actions Deployment Workflow Guide](https://roadmap.sh/projects/github-actions-deployment-workflow)
+* 📚 [GitHub Pages Documentation](https://docs.github.com/pages)
+* 📘 [GitHub Actions Documentation](https://docs.github.com/actions)
+* ⚙️ [Official Pages Deployment Workflow Example](https://github.com/actions/deploy-pages)
 
 ---
 
-## 📜 License
+## &#x20;License
 
 This project is released under the [MIT License](LICENSE).
-
-
 

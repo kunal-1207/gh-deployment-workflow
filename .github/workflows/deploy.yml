@@ -1,0 +1,47 @@
+name: Deploy index.html to GitHub Pages
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "index.html"   # only run when index.html changes
+  workflow_dispatch:
+
+# Minimal permissions needed for Pages deployments
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Avoid overlapping deployments; keep only the latest run
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Prepare metadata for Pages (safe to include even for plain HTML)
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      # Upload the site; you can limit to just index.html if you prefer
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .   # or 'index.html' for ultra-minimal deployments
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
